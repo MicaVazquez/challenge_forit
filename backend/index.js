@@ -13,6 +13,13 @@ let tasks = [
     completed: false,
     createdAt: new Date(),
   },
+  {
+    id: "2",
+    title: "bbb",
+    description: "ccc",
+    completed: true,
+    createdAt: new Date(),
+  },
 ];
 
 app.get("/api/tasks", (req, res) => {
