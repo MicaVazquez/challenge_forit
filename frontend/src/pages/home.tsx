@@ -1,4 +1,4 @@
 export function Home() {
-  return <div>Home Page</div>;
+  return <div>Lista de Tareas</div>;
 }
 export default Home;
