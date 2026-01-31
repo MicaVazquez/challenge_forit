@@ -24,7 +24,7 @@ const Navigation = () => {
             <Nav.Link as={Link} to="/tasks">
               Tasks
             </Nav.Link>
-            <Nav.Link as={Link} to="/tasks/new">
+            <Nav.Link as={Link} to="/newTask">
               New Task
             </Nav.Link>
           </Nav>

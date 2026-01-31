@@ -5,7 +5,7 @@ import { lazy } from "react";
 import Navigation from "./components/nav";
 
 const Home = lazy(() => import("./pages/home"));
-
+const NewTask = lazy(() => import("./pages/newTask"));
 function App() {
   return (
     <>
@@ -13,6 +13,7 @@ function App() {
       <Suspense fallback={<div className="container mt-5">Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/newTask" element={<NewTask />}></Route>
         </Routes>
       </Suspense>
     </>
