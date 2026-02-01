@@ -1,54 +1,80 @@
-import { useState, useEffect } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate, useLocation } from "react-router-dom";
-import { MdAddTask } from "react-icons/md";
-import { createTask, updateTask } from "../services/taskservices";
+import { useEffect } from "react";
 import type { Task } from "../types/task";
 import "../styles/newTask.css";
-
+import { MdAddTask } from "react-icons/md";
+import { createTask, updateTask } from "../services/taskservices";
+import Swal from "sweetalert2";
 const TaskForm = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   const taskToEdit = location.state?.task as Task | undefined;
   const isEditing = !!taskToEdit;
 
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<Task>({
+    mode: "onChange",
+  });
+
   useEffect(() => {
     if (taskToEdit) {
-      setTitle(taskToEdit.title);
-      setDescription(taskToEdit.description);
+      setValue("title", taskToEdit.title);
+      setValue("description", taskToEdit.description);
     }
-  }, [taskToEdit]);
+  }, [taskToEdit, setValue]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const onSubmit: SubmitHandler<Task> = async (data) => {
     try {
       if (isEditing && taskToEdit) {
         await updateTask({
           id: taskToEdit.id,
-          title,
-          description,
+          title: data.title,
+          description: data.description,
           completed: taskToEdit.completed,
           createdAt: taskToEdit.createdAt,
         });
-        console.log("Tarea actualizada");
+
+        await Swal.fire({
+          title: "¡Actualizada!",
+          text: "La tarea ha sido actualizada.",
+          icon: "success",
+          background: "#2a2d3a",
+          color: "#ffffff",
+          confirmButtonColor: "#ff3ba0",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       } else {
-        await createTask({
-          title,
-          description,
+        const newTask = {
+          title: data.title,
+          description: data.description,
           completed: false,
           createdAt: new Date(),
+        };
+        await createTask(newTask);
+        await Swal.fire({
+          title: "¡Nueva tarea!",
+          text: "La tarea ha sido creada.",
+          icon: "success",
+          background: "#2a2d3a",
+          color: "#ffffff",
+          confirmButtonColor: "#ff3ba0",
+          timer: 1500,
+          showConfirmButton: false,
         });
-        console.log("Tarea creada");
       }
 
-      setTitle("");
-      setDescription("");
-      navigate("/tasks");
+      reset();
+      navigate("/");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("❌ Error:", error);
     }
   };
 
@@ -66,23 +92,40 @@ const TaskForm = () => {
         </h5>
       </div>
 
-      <form className="container-form" onSubmit={handleSubmit}>
+      <form className="container-form" onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">Título:</label>
         <input
-          type="text"
-          id="title"
           placeholder="Escribe un titulo"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          {...register("title", {
+            required: "El título es obligatorio",
+            validate: (value) =>
+              !/^\d+$/.test(value) || "No puede ser solo números",
+          })}
         />
+        {errors.title && (
+          <span className="error-span">{errors.title.message}</span>
+        )}
 
         <label htmlFor="description">Descripción:</label>
         <textarea
-          id="description"
           placeholder="Escribe una descripcion"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+          {...register("description", {
+            required: "La descripción es obligatoria",
+            maxLength: {
+              value: 500,
+              message: "La descripción no puede exceder 500 caracteres",
+            },
+            minLength: {
+              value: 10,
+              message: "La descripción debe tener al menos 10 caracteres",
+            },
+            validate: (value) =>
+              !/^\d+$/.test(value) || "No puede ser solo números",
+          })}
+        ></textarea>
+        {errors.description && (
+          <span className="error-span">{errors.description.message}</span>
+        )}
 
         <button type="submit" className="btn-submit">
           {isEditing ? "Actualizar Tarea" : "Crear Tarea"}

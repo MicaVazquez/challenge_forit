@@ -9,21 +9,22 @@ app.use(express.json());
 let tasks = [
   {
     id: "1",
-    title: "tarea1",
-    description: "bbb",
+    title: "tarea 1",
+    description: "Agregar validaciones al formulario de React",
     completed: false,
     createdAt: new Date(),
   },
   {
     id: "2",
-    title: "tarea2",
-    description: "ccc",
+    title: "tarea 2",
+    description: "Mejorar el diseño de la home",
     completed: true,
     createdAt: new Date(),
   },
 ];
 
 app.get("/api/tasks", (req, res) => {
+  console.log(tasks);
   res.json(tasks);
 });
 
@@ -43,6 +44,8 @@ app.post("/api/tasks", (req, res) => {
   };
 
   tasks.push(newTask);
+  console.log("📝 Tarea agregada. Total de tareas:", tasks.length);
+  console.log("Tareas actuales:", tasks);
   res.status(201).json(newTask);
 });
 

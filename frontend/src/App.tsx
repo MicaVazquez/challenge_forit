@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/edit-task" element={<TaskForm />}></Route>
           <Route path="/new-task" element={<TaskForm />}></Route>
+          <Route path="/tasks" element={<TaskList />}></Route>
           <Route path="/" element={<TaskList />}></Route>
         </Routes>
       </Suspense>

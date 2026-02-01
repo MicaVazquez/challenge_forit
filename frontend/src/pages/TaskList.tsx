@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import type { Task } from "../types/task";
 import { fetchTasks } from "../services/taskservices";
@@ -8,12 +8,7 @@ import TaskItem from "../components/tasksItem";
 
 export const TaskList = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
-  // const deleteTask = (id: string) => {
-  //   setTasks(tasks.filter((task) => task.id !== id));
-  // };
-  // const editTodo = (item: Task) => {
-  //   console.log("Editando tarea:", item);
-  // };
+
   const loadTasks = async () => {
     try {
       const data = await fetchTasks();

@@ -114,3 +114,37 @@ body {
   color: #6a6666;
   text-align: center;
 }
+
+.task-card.completed {
+  opacity: 0.6;
+  background-color: #1f2230;
+}
+
+.task-card.completed .text-display h3 {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-card.completed .text-display p {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.task-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.task-checkbox {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #ff3ba0;
+}

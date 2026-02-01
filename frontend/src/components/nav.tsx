@@ -19,7 +19,7 @@ const Navigation = () => {
         >
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/">
-              Home
+              Tareas
             </Nav.Link>
 
             <Nav.Link as={Link} to="/new-task">
