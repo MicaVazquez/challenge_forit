@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 
 const Navigation = () => {
   return (
-    <Navbar bg="light" expand="lg" className="mb-3">
+    <Navbar bg="dark" variant="dark" expand="lg" className="mb-3">
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
           Lista de Tareas
