@@ -2,14 +2,19 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import type { Task } from "../types/task";
 import "../styles/newTask.css";
 import { MdAddTask } from "react-icons/md";
-
+import { createTask } from "../services/taskservices";
+import { useNavigate } from "react-router-dom";
 export const newTask = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     reset,
+
     formState: { errors },
-  } = useForm<Task>();
+  } = useForm<Task>({
+    mode: "onChange",
+  });
 
   const onSubmit: SubmitHandler<Task> = (data) => {
     const newTask: Task = {
@@ -19,8 +24,18 @@ export const newTask = () => {
       completed: false,
       createdAt: new Date(),
     };
-    console.log(newTask);
-    reset();
+    console.log("Tarea a crear:", newTask);
+
+    createTask(newTask)
+      .then((response) => {
+        console.log("✅ Tarea creada exitosamente:", response);
+        reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("❌ Error al crear la tarea:", error);
+        alert("Error: " + error.message);
+      });
   };
 
   return (
@@ -37,15 +52,35 @@ export const newTask = () => {
         <label htmlFor="title">Título:</label>
         <input
           placeholder="Escribe un titulo"
-          {...register("title", { required: true })}
+          {...register("title", {
+            required: "El título es obligatorio",
+            validate: (value) =>
+              !/^\d+$/.test(value) || "No puede ser solo números",
+          })}
         />
-        {errors.title && <span>Este campo es obligatorio</span>}
+        {errors.title && (
+          <span className="error-span">{errors.title.message}</span>
+        )}
         <label htmlFor="description">Descripción:</label>
         <textarea
           placeholder="Escribe una descripcion"
-          {...register("description", { required: true })}
+          {...register("description", {
+            required: "La descripción es obligatoria",
+            maxLength: {
+              value: 500,
+              message: "La descripción no puede exceder 500 caracteres",
+            },
+            minLength: {
+              value: 10,
+              message: "La descripción debe tener al menos 10 caracteres",
+            },
+            validate: (value) =>
+              !/^\d+$/.test(value) || "No puede ser solo números",
+          })}
         ></textarea>
-        {errors.description && <span>Este campo es obligatorio</span>}
+        {errors.description && (
+          <span className="error-span">{errors.description.message}</span>
+        )}
         <button type="submit" className="btn-submit">
           Crear Tarea
         </button>

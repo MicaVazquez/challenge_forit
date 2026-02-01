@@ -2,7 +2,7 @@ import { TaskList } from "./TaskList";
 export function Home() {
   return (
     <div>
-      <TaskList />
+      <p>Welcome to the Home Page</p>
     </div>
   );
 }

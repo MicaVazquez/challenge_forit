@@ -52,11 +52,10 @@ label {
   font-weight: 200;
 }
 
-span {
+span.error-span {
   color: #bf1650;
 }
-span::before {
-  display: inline;
+span.error-span::before {
   content: "⚠ ";
 }
 
