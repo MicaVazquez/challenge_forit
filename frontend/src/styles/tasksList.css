@@ -1,0 +1,116 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #0e101c;
+}
+
+.task-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.task-card {
+  background-color: #2a2d3a;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  border: 1px solid #3a3d4a;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.task-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.text-display {
+  flex: 1;
+}
+
+.text-display h3 {
+  margin: 0 0 0.5rem 0;
+  color: #e0e0e0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.text-display p {
+  margin: 0;
+  color: #a0a0a0;
+  line-height: 1.5;
+}
+
+.buttons-box {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.buttons-box button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3a3d4a;
+}
+
+.buttons-box button:hover {
+  transform: scale(1.1);
+  background-color: #4a4d5a;
+}
+
+.btn-edit:hover {
+  background-color: #5a5d6a;
+}
+
+.btn-delete:hover {
+  background-color: #d85a7f;
+}
+
+.btn-complete:hover {
+  background-color: #6abf69;
+}
+
+.buttons-box a {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.buttons-box svg {
+  width: 18px;
+  height: 18px;
+  color: #d85a7f;
+}
+
+.btn-edit svg {
+  color: #7a8fdb;
+}
+
+.btn-delete svg {
+  color: #d85a7f;
+}
+
+.btn-complete svg {
+  color: #6abf69;
+}
+
+.header {
+  margin-top: 50px;
+  color: #6a6666;
+  text-align: center;
+}

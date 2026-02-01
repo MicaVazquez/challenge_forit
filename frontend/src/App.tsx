@@ -4,16 +4,16 @@ import { Suspense } from "react";
 import { lazy } from "react";
 import Navigation from "./components/nav";
 
-const Home = lazy(() => import("./pages/home"));
-const NewTask = lazy(() => import("./pages/newTask"));
 const TaskList = lazy(() => import("./pages/TaskList"));
+const TaskForm = lazy(() => import("./pages/TaskForm"));
 function App() {
   return (
     <>
       <Navigation />
-      <Suspense fallback={<div className="container mt-5">Loading...</div>}>
+      <Suspense fallback={<div className="loading-container">Cargando...</div>}>
         <Routes>
-          <Route path="/newTask" element={<NewTask />}></Route>
+          <Route path="/edit-task" element={<TaskForm />}></Route>
+          <Route path="/new-task" element={<TaskForm />}></Route>
           <Route path="/" element={<TaskList />}></Route>
         </Routes>
       </Suspense>

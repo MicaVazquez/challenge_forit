@@ -21,10 +21,8 @@ const Navigation = () => {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            {/* <Nav.Link as={Link} to="/tasks">
-              Tasks
-            </Nav.Link> */}
-            <Nav.Link as={Link} to="/newTask">
+
+            <Nav.Link as={Link} to="/new-task">
               Nueva Tarea
             </Nav.Link>
           </Nav>
