@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaPencil, FaTrashCan, FaCheck } from "react-icons/fa6";
+import { FaPencil, FaTrashCan } from "react-icons/fa6";
 import type { Task } from "../types/task";
 import { deleteTask, updateTask } from "../services/taskservices";
 import Swal from "sweetalert2";
