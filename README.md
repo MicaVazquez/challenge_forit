@@ -11,16 +11,6 @@
 
 ---
 
-## 📸 Capturas de pantalla
-
-A continuación se muestran algunas capturas de la aplicación:
-
-![Captura 362](<img-app/Captura%20de%20pantalla%20(362).png>)
-![Captura 363](<img-app/Captura%20de%20pantalla%20(363).png>)
-![Captura 364](<img-app/Captura%20de%20pantalla%20(364).png>)
-![Captura 365](<img-app/Captura%20de%20pantalla%20(365).png>)
-![Captura 366](<img-app/Captura%20de%20pantalla%20(366).png>)
-
 ## 🌟 Características principales
 
 - 📋 **CRUD completo** — Crear, leer, actualizar y eliminar tareas
@@ -118,6 +108,16 @@ Una vez que ambos servidores estén activos, podés:
 | **Backend**  | Node.js, Express, CORS                                              |
 
 ---
+
+## 📸 Capturas de pantalla
+
+A continuación se muestran algunas capturas de la aplicación:
+
+![Captura 362](<img-app/Captura%20de%20pantalla%20(362).png>)
+![Captura 363](<img-app/Captura%20de%20pantalla%20(363).png>)
+![Captura 364](<img-app/Captura%20de%20pantalla%20(364).png>)
+![Captura 365](<img-app/Captura%20de%20pantalla%20(365).png>)
+![Captura 366](<img-app/Captura%20de%20pantalla%20(366).png>)
 
 ## 👩‍💻 Autora
 
