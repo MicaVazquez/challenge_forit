@@ -1,5 +1,3 @@
-div align="center">
-
 # ✅ Challenge ForIT — Lista de Tareas Fullstack
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
@@ -12,6 +10,16 @@ div align="center">
 </div>
 
 ---
+
+## 📸 Capturas de pantalla
+
+A continuación se muestran algunas capturas de la aplicación:
+
+![Captura 362](<img-app/Captura%20de%20pantalla%20(362).png>)
+![Captura 363](<img-app/Captura%20de%20pantalla%20(363).png>)
+![Captura 364](<img-app/Captura%20de%20pantalla%20(364).png>)
+![Captura 365](<img-app/Captura%20de%20pantalla%20(365).png>)
+![Captura 366](<img-app/Captura%20de%20pantalla%20(366).png>)
 
 ## 🌟 Características principales
 
