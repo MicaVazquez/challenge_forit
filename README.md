@@ -1,93 +1,123 @@
-# Challenge ForIT: Lista de Tareas (Fullstack)
+div align="center">
 
-Este proyecto es una aplicación web fullstack para gestionar tareas, desarrollada como challenge técnico. Incluye un backend con Node.js/Express y un frontend en React + TypeScript + Vite.
+# ✅ Challenge ForIT — Lista de Tareas Fullstack
 
-## Características principales
+### Aplicación web para gestión de tareas, desarrollada como challenge técnico de ingreso a Academia ForIT 2026.
 
-- **CRUD de tareas**: Crear, leer, actualizar y eliminar tareas.
-- **Frontend moderno**: Interfaz en React, con estilos personalizados y feedback visual.
-- **Backend simple**: API REST con Express, sin base de datos (almacenamiento en memoria).
-- **Validaciones**: Formularios con validaciones y alertas amigables.
-- **Diseño adaptable**: Uso de Bootstrap y componentes reutilizables.
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+
+</div>
 
 ---
 
-## Estructura del proyecto
+## 🌟 Características principales
+
+- 📋 **CRUD completo** — Crear, leer, actualizar y eliminar tareas
+- ⚛️ **Frontend moderno** — React + TypeScript con estilos personalizados y feedback visual
+- ⚡ **Backend simple** — API REST con Express, sin base de datos (almacenamiento en memoria)
+- 🛡️ **Validaciones** — Formularios con validaciones y alertas amigables con SweetAlert2
+- 📱 **Diseño adaptable** — Componentes reutilizables con React Bootstrap
+
+---
+
+## 📂 Estructura del proyecto
 
 ```
-backend/           # Servidor Express (API REST)
-  index.js         # Lógica de rutas y almacenamiento de tareas
-  package.json     # Dependencias y scripts
-frontend/          # Aplicación React + Vite
-  src/
-    components/    # Componentes reutilizables (Nav, TaskItem)
-    pages/         # Vistas principales (Home, TaskList, TaskForm)
-    services/      # Lógica para consumir la API
-    types/         # Tipos TypeScript
-    styles/        # Archivos CSS
-  public/          # Archivos estáticos
-  package.json     # Dependencias y scripts
+challenge_forit/
+├── backend/                  # Servidor Express (API REST)
+│   ├── index.js              # Lógica de rutas y almacenamiento de tareas
+│   └── package.json
+│
+└── frontend/                 # Aplicación React + Vite
+    ├── src/
+    │   ├── components/       # Nav, TaskItem...
+    │   ├── pages/            # Home, TaskList, TaskForm
+    │   ├── services/         # Consumo de la API
+    │   ├── types/            # Tipos TypeScript
+    │   └── styles/           # Archivos CSS
+    ├── public/
+    └── package.json
 ```
 
 ---
 
-## Instalación y ejecución
+## 🔌 Endpoints de la API
 
-### Backend
-
-1. Ir a la carpeta `backend`:
-   ```bash
-   cd backend
-   ```
-2. Instalar dependencias:
-   ```bash
-   npm install
-   ```
-3. Iniciar el servidor:
-   ```bash
-   npm start
-   ```
-   El backend corre en `http://localhost:3000`.
-
-### Frontend
-
-1. Ir a la carpeta `frontend`:
-   ```bash
-   cd frontend
-   ```
-2. Instalar dependencias:
-   ```bash
-   npm install
-   ```
-3. Iniciar la app:
-   ```bash
-   npm run dev
-   ```
-   El frontend corre en `http://localhost:5173` (por defecto).
+|  Método  | Endpoint         | Descripción                    |
+| :------: | ---------------- | ------------------------------ |
+|  `GET`   | `/api/tasks`     | Obtener todas las tareas       |
+|  `POST`  | `/api/tasks`     | Crear una nueva tarea          |
+|  `PUT`   | `/api/tasks/:id` | Actualizar una tarea existente |
+| `DELETE` | `/api/tasks/:id` | Eliminar una tarea             |
 
 ---
 
-## Uso
+## ⚙️ Instalación y ejecución
 
-- Desde la web puedes crear nuevas tareas, editarlas, marcarlas como completadas o eliminarlas.
-- El estado de las tareas se mantiene mientras el backend esté corriendo (no hay persistencia en base de datos).
+> **Requisitos:** Node.js v18+ y npm
+
+### 1️⃣ Clonar el repositorio
+
+```bash
+git clone https://github.com/TU_USUARIO/challenge_forit.git
+cd challenge_forit
+```
+
+### 2️⃣ Backend
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+🟢 Servidor corriendo en `http://localhost:3000`
+
+### 3️⃣ Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+🟢 App disponible en `http://localhost:5173`
 
 ---
 
-## Tecnologías utilizadas
+## 🖥️ Uso
 
-- **Frontend:** React, TypeScript, Vite, React Router, React Bootstrap, SweetAlert2
-- **Backend:** Node.js, Express, CORS
+Una vez que ambos servidores estén activos, podés:
+
+- ✏️ **Crear** nuevas tareas desde el formulario
+- 👁️ **Ver** todas tus tareas en el listado
+- 🔄 **Editar** tareas existentes
+- ✅ **Marcarlas** como completadas
+- 🗑️ **Eliminarlas** cuando ya no las necesités
+
+> ⚠️ Las tareas se almacenan en memoria: si el backend se reinicia, los datos se pierden.
 
 ---
 
-## Notas
+## 🛠️ Tecnologías utilizadas
 
-- Este proyecto es solo para fines demostrativos y de práctica.
-- Puedes modificar y mejorar el código según tus necesidades.
+| Capa         | Tecnologías                                                         |
+| ------------ | ------------------------------------------------------------------- |
+| **Frontend** | React, TypeScript, Vite, React Router, React Bootstrap, SweetAlert2 |
+| **Backend**  | Node.js, Express, CORS                                              |
 
 ---
 
-## Autor
+## 👩‍💻 Autora
 
-- Challenge realizado por Micaela
+<div align="center">
+
+Desarrollado con 💜 por **Micaela**  
+Challenge técnico — Academia ForIT 2026
+
+</div>
