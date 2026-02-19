@@ -2,8 +2,6 @@ div align="center">
 
 # ✅ Challenge ForIT — Lista de Tareas Fullstack
 
-### Aplicación web para gestión de tareas, desarrollada como challenge técnico de ingreso a Academia ForIT 2026.
-
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
